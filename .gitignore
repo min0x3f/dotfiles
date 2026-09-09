@@ -1,2 +1,15 @@
+# Local credentials and machine-specific overrides
+**/.private/
+**/*.local
+**/*.private
+.env
+.env.*
+
+# Editor and backup files
 .DS_Store
 **/*.un~
+**/*.bak
+**/*.backup
+**/*~
+**/*.swp
+**/*.swo

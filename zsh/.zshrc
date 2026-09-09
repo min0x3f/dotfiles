@@ -119,7 +119,7 @@ source "$HOME/.config/zsh/bureau.zsh"
 source ~/cp_garden/scripts/bash/cp_vim.zsh
 source ~/cp_garden/scripts/bash/cp_tools.zsh
 source ~/.fzf-marks/fzf-marks.plugin.zsh
-source ~/.config/secrets/api-key.zsh
+source ~/.config/.private/api-key.zsh
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH=$PATH:/Users/minh/.spicetify
