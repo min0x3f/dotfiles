@@ -44,37 +44,37 @@ export FZF_DEFAULT_OPTS="
 
 # Function: FZF file picker (Ctrl+T)
 _fzf_file_transparent() {
-  local file
-  file=$(find . -type f 2>/dev/null | fzf --height=90% --reverse --border --preview 'bat --style=plain --theme="Solarized (light)" --color=always --line-range :51 {}' --preview-window=right:60%)
-  if [[ -n $file ]]; then
-    LBUFFER+="$file"
-  fi
-  zle redisplay
+	local file
+	file=$(find . -type f 2>/dev/null | fzf --height=90% --reverse --border --preview 'bat --style=plain --theme="Solarized (light)" --color=always --line-range :51 {}' --preview-window=right:60%)
+	if [[ -n $file ]]; then
+		LBUFFER+="$file"
+	fi
+	zle redisplay
 }
 zle -N _fzf_file_transparent
 bindkey '^T' _fzf_file_transparent
 
 # Function: FZF cd (Ctrl + G)
 _fzf_cd_transparent() {
-  local dir
-  dir=$(find . -type d 2>/dev/null | fzf --height=90% --reverse --border --preview-window=right:60% --preview='eza --tree --icons --color=always --level 2 {}')
-  if [[ -n "$dir" ]]; then
-    cd "$dir" || return
-    zle reset-prompt
-  fi
+	local dir
+	dir=$(find . -type d 2>/dev/null | fzf --height=90% --reverse --border --preview-window=right:60% --preview='eza --tree --icons --color=always --level 2 {}')
+	if [[ -n "$dir" ]]; then
+		cd "$dir" || return
+		zle reset-prompt
+	fi
 }
 zle -N _fzf_cd_transparent
 bindkey '^F' _fzf_cd_transparent
 
 # Function: FZF history search (Ctrl+R)
 _fzf_history_transparent() {
-  local selected
-  selected=$(fc -rl 1 | fzf --height=90% --reverse --border --tac | sed 's/^[[:space:]]*[0-9]*[[:space:]]*//')
-  if [[ -n $selected ]]; then
-    BUFFER=$selected
-    CURSOR=${#BUFFER}
-  fi
-  zle redisplay
+	local selected
+	selected=$(fc -rl 1 | fzf --height=90% --reverse --border --tac | sed 's/^[[:space:]]*[0-9]*[[:space:]]*//')
+	if [[ -n $selected ]]; then
+		BUFFER=$selected
+		CURSOR=${#BUFFER}
+	fi
+	zle redisplay
 }
 zle -N _fzf_history_transparent
 bindkey '^R' _fzf_history_transparent
