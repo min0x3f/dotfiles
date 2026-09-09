@@ -8,7 +8,14 @@ require("snacks").setup({
 		enabled = true,
 		layout = { preset = "ivy" },
 	},
-	lazygit = {},
+	lazygit = {
+		win = {
+			position = "float",
+			width = 0.9,
+			height = 0.9,
+			border = "rounded",
+		},
+	},
 	terminal = {
 		win = {
 			position = "right",

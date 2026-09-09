@@ -3,8 +3,8 @@ require("oil").setup({
 	columns = { "icon" },
 	float = {
 		padding = 2,
-		max_width = 0.7,
-		max_height = 0.7,
+		max_width = 0.8,
+		max_height = 0.8,
 		border = "rounded",
 	},
 })
