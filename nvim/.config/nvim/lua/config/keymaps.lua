@@ -1,0 +1,56 @@
+local map = vim.keymap.set
+
+-- Editing
+map("i", "jk", "<Esc>", { desc = "Exit insert mode" })
+map("n", "<Esc>", "<cmd>nohlsearch<CR>")
+map("n", "<leader>w", "<cmd>write<CR>", { desc = "Write buffer" })
+map("n", "<leader>q", "<cmd>quit<CR>", { desc = "Quit window" })
+map("n", "<leader>o", "<cmd>Oil --float<CR>", { desc = "Open Oil" })
+map("n", "<leader>e", function()
+  Snacks.explorer()
+end, { desc = "Open Explorer" })
+
+-- Find
+map("n", "<leader>ff", function()
+  Snacks.picker.files()
+end, { desc = "Find files" })
+map("n", "<leader>fg", function()
+  Snacks.picker.grep()
+end, { desc = "Find text" })
+map("n", "<leader>fb", function()
+  Snacks.picker.buffers()
+end, { desc = "Find buffers" })
+map("n", "<leader>fr", function()
+  Snacks.picker.recent()
+end, { desc = "Find recent files" })
+map("n", "<leader>fc", function()
+  Snacks.picker.files({ cwd = vim.fn.stdpath("config") })
+end, { desc = "Find config files" })
+map("n", "<leader>fd", function()
+  Snacks.picker.diagnostics()
+end, { desc = "Find diagnostics" })
+map("n", "<leader>fk", function()
+  Snacks.picker.keymaps()
+end, { desc = "Find keymaps" })
+map("n", "<leader>fh", function()
+  Snacks.picker.help()
+end, { desc = "Find help" })
+
+-- Git
+map("n", "<leader>gs", "<cmd>Git<CR>", { desc = "Git status" })
+map("n", "<leader>gd", "<cmd>Gdiffsplit<CR>", { desc = "Git diff" })
+map("n", "<leader>gb", "<cmd>Git blame<CR>", { desc = "Git blame" })
+map("n", "<leader>gl", "<cmd>Git log --oneline --decorate<CR>", { desc = "Git log" })
+
+-- Buffers
+map("n", "H", "<cmd>BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
+map("n", "L", "<cmd>BufferLineCycleNext<CR>", { desc = "Next buffer" })
+map("n", "<leader>bq", "<cmd>Wq<CR>", { desc = "Write and delete buffer" })
+
+-- Windows
+map("n", "<leader>|", "<cmd>vsplit<CR>", { desc = "Split window vertically" })
+map("n", "<leader>-", "<cmd>split<CR>", { desc = "Split window horizontally" })
+map("n", "<C-h>", "<C-w><C-h>", { desc = "Focus left window" })
+map("n", "<C-j>", "<C-w><C-j>", { desc = "Focus lower window" })
+map("n", "<C-k>", "<C-w><C-k>", { desc = "Focus upper window" })
+map("n", "<C-l>", "<C-w><C-l>", { desc = "Focus right window" })

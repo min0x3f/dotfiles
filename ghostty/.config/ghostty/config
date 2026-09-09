@@ -1,0 +1,50 @@
+# By default Reload config with shift + cmd + ,
+config-file = themes/solarized
+#theme = "Catppuccin Mocha"
+#theme = "Nord"
+
+# === Background color ===
+# special for nord bone
+#background = #242933
+
+# === Background / transparency / blur ===
+background-opacity = 1
+background-blur-radius = 20
+window-width = 130
+window-height = 40
+
+#Font
+font-family = "DejaVuSansM Nerd Font Mono"
+#font-family = "JetBrainsMono Nerd Font Mono"
+#font-family = "CaskaydiaCove Nerd Font Mono"
+#font-family = "MesloLGS Nerd Font Mono"
+font-size = 12
+
+# Cursor
+cursor-style = block
+cursor-style-blink = false
+cursor-invert-fg-bg = true
+
+# macOS options
+macos-titlebar-style = hidden
+macos-option-as-alt = true
+mouse-hide-while-typing = true
+
+# Window
+confirm-close-surface = false
+window-decoration = auto
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = false
+
+# Updates
+auto-update = check
+auto-update-channel = stable
+
+# Extras
+shell-integration-features = no-cursor
+copy-on-select = clipboard
+
+# Minimal keybinds
+keybind = super+i=inspector:toggle
+keybind = super+r=reload_config
