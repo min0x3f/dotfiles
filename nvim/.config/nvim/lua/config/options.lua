@@ -46,9 +46,7 @@ opt.listchars = { tab = "» ", trail = "·", extends = "▶", precedes = "◀", 
 
 -- Folds
 opt.foldenable = true
-opt.foldmethod = "syntax"
 opt.foldlevelstart = 99
-opt.foldnestmax = 1
 
 -- Files
 opt.swapfile = false

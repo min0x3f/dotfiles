@@ -32,6 +32,8 @@ vim.pack.add({
 	-- Language intelligence
 	"https://github.com/nvim-treesitter/nvim-treesitter",
 	"https://github.com/neovim/nvim-lspconfig",
+	"https://github.com/kevinhwang91/promise-async",
+	"https://github.com/kevinhwang91/nvim-ufo",
 }, { confirm = false })
 
 -- Appearance
@@ -52,3 +54,4 @@ require("plugins.conform")
 -- Language intelligence
 require("plugins.treesitter")
 require("plugins.lsp")
+require("plugins.ufo")

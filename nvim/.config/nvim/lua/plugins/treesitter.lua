@@ -3,14 +3,6 @@ local treesitter = require("nvim-treesitter")
 -- nvim-treesitter ships its query files under runtime/, which native vim.pack
 -- does not add to runtimepath automatically.
 vim.opt.rtp:append(vim.fn.stdpath("data") .. "/site/pack/core/opt/nvim-treesitter/runtime")
-vim.opt.fillchars:remove({ foldclose = "▸", foldopen = "▾", foldsep = " " })
-vim.opt.fillchars:append({ fold = " " })
-
-function _G.CppFoldText()
-	local header = vim.fn.getline(vim.v.foldstart):gsub("^%s+", ""):gsub("%s*{%s*$", "")
-	local lines = vim.v.foldend - vim.v.foldstart + 1
-	return string.format("›  %s { ... }  ·  %d lines", header, lines)
-end
 
 local parsers = {
 	"bash",
@@ -34,18 +26,6 @@ local parsers = {
 treesitter.setup({
 	install_dir = vim.fn.stdpath("data") .. "/site",
 })
-
-vim.treesitter.query.set(
-	"cpp",
-	"folds",
-	[[
-[
-  (namespace_definition)
-  (struct_specifier)
-  (class_specifier)
-] @fold
-]]
-)
 
 treesitter.install(parsers)
 
@@ -77,6 +57,30 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+--[=[
+Legacy native C++ folding backup. Replaced by nvim-ufo in plugins/ufo.lua.
+
+vim.opt.fillchars:remove({ foldclose = "▸", foldopen = "▾", foldsep = " " })
+vim.opt.fillchars:append({ fold = " " })
+
+function _G.CppFoldText()
+	local header = vim.fn.getline(vim.v.foldstart):gsub("^%s+", ""):gsub("%s*{%s*$", "")
+	local lines = vim.v.foldend - vim.v.foldstart + 1
+	return string.format("›  %s { ... }  ·  %d lines", header, lines)
+end
+
+vim.treesitter.query.set(
+	"cpp",
+	"folds",
+	[[
+[
+  (namespace_definition)
+  (struct_specifier)
+  (class_specifier)
+] @fold
+]]
+)
+
 vim.api.nvim_create_autocmd("FileType", {
 	group = group,
 	pattern = "cpp",
@@ -103,3 +107,4 @@ vim.api.nvim_create_autocmd("FileType", {
 		end)
 	end,
 })
+]=]

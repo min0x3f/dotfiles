@@ -22,9 +22,9 @@ end
 
 local function style_folds()
 	if vim.g.colors_name and vim.g.colors_name:find("solarized8") then
-		vim.api.nvim_set_hl(0, "Folded", { fg = "#586e75", bg = "#eee8d5", bold = true })
+		vim.api.nvim_set_hl(0, "Folded", { fg = "#586e75" })
 		vim.api.nvim_set_hl(0, "FoldColumn", { fg = "#93a1a1", bg = "#fdf6e3" })
-		vim.api.nvim_set_hl(0, "CursorLineFold", { fg = "#586e75", bg = "#eee8d5", bold = true })
+		vim.api.nvim_set_hl(0, "CursorLineFold", { fg = "#586e75" })
 	end
 end
 
