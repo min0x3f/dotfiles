@@ -87,26 +87,19 @@ alias fman="print -l ${(k)commands} | fzf | xargs man"
 bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forwardsource
 
-# --- Editor ---
-export EDITOR="vim"
-
-
 # ---- Eza (better ls) -----
 
-alias l="ls -l --color=never"
+alias ls="eza --color=never --group-directories-first"
+alias l="eza -l --color=never --group-directories-first"
 alias la="eza -1la --color=never --group-directories-first"
 alias lt="eza -T --color=never"   # tree view
 alias lg="eza -l --git"
-
-# alias for newlatex
-alias newlatexmit='cp -r ~/latex-templates/mit-style/ ./'
-alias newlatex='cp -r ~/latex-templates/random-style/ ./'
 
 # alias for python
 alias py='python3'
 
 # alias for gcc
-alias g++='g++-15'
+alias g++='g++-16'
 
 # alias for leetgo
 alias lc='leetgo'
@@ -116,10 +109,12 @@ eval "$(zoxide init zsh --cmd cd)"
 #eval "$(starship init zsh)"
 source "$HOME/.config/zsh/bureau.zsh"
 
-source ~/cp_garden/scripts/bash/cp_vim.zsh
-source ~/cp_garden/scripts/bash/cp_tools.zsh
+source ~/cp_garden/scripts/gator.sh
 source ~/.fzf-marks/fzf-marks.plugin.zsh
 source ~/.config/.private/api-key.zsh
+
+# --- Editor ---
+export EDITOR="nvim"
 
 export PATH="$HOME/.local/bin:$PATH"
 export PATH=$PATH:/Users/minh/.spicetify

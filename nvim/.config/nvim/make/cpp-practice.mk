@@ -5,7 +5,7 @@ INPUT ?= in
 
 .DEFAULT_GOAL := all
 
-CXX := g++-15
+CXX := g++-16
 CXXFLAGS := -std=c++23 -O2 -g -Wall -Wextra -pedantic -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wlogical-op -Wshift-overflow=2 -Wduplicated-cond -Wcast-qual -Wcast-align -Wno-unused-result -Wno-sign-conversion
 
 ifeq ($(shell uname -s),Darwin)
