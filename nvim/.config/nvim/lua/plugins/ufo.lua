@@ -112,8 +112,10 @@ local function close_cpp_declarations(bufnr, winid)
 	vim.api.nvim_win_call(winid, function()
 		local view = vim.fn.winsaveview()
 		for _, line in ipairs(lines) do
-			vim.api.nvim_win_set_cursor(winid, { line, 0 })
-			vim.cmd("normal! zc")
+			if vim.fn.foldlevel(line) > vim.fn.foldlevel(line - 1) then
+				vim.api.nvim_win_set_cursor(winid, { line, 0 })
+				pcall(vim.cmd, "normal! zc")
+			end
 		end
 		vim.fn.winrestview(view)
 	end)

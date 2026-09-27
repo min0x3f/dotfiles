@@ -85,7 +85,7 @@ alias nlof="~/scripts/fzf_listoldfiles.sh"
 alias fman="print -l ${(k)commands} | fzf | xargs man"
 
 bindkey "^[[A" history-search-backward
-bindkey "^[[B" history-search-forwardsource
+bindkey "^[[B" history-search-forward
 
 # ---- Eza (better ls) -----
 
@@ -97,9 +97,6 @@ alias lg="eza -l --git"
 
 # alias for python
 alias py='python3'
-
-# alias for gcc
-alias g++='g++-16'
 
 # alias for leetgo
 alias lc='leetgo'

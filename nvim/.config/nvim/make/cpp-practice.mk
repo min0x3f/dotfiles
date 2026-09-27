@@ -43,4 +43,5 @@ export TIME=\n  real\t%es\n  user\t%Us\n  sys\t%Ss\n  mem\t%MKB
 
 run: all
 	\time ./sol < "$(INPUT)"
+	@echo "Built with DEBUG flags enabled, code may be slower than normal"
 .PHONY: run

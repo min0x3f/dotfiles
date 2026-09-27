@@ -50,6 +50,7 @@ vim.lsp.config("clangd", {
 		"clangd",
 		"--background-index",
 		"--clang-tidy=false",
+		"--log=error",
 		"--query-driver=/opt/homebrew/bin/g++-16",
 	},
 	on_attach = on_attach,
