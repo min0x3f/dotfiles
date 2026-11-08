@@ -85,4 +85,16 @@ vim.lsp.config("ruff", {
 	on_attach = on_ruff_attach,
 })
 
-vim.lsp.enable({ "clangd", "pyright", "lua_ls", "ruff" })
+local tinymist_on_attach = vim.lsp.config.tinymist.on_attach
+vim.lsp.config("tinymist", {
+	capabilities = capabilities,
+	on_attach = function(client, bufnr)
+		-- Keep the export commands supplied by nvim-lspconfig.
+		if tinymist_on_attach then
+			tinymist_on_attach(client, bufnr)
+		end
+		on_attach(client, bufnr)
+	end,
+})
+
+vim.lsp.enable({ "clangd", "pyright", "lua_ls", "ruff", "tinymist" })
