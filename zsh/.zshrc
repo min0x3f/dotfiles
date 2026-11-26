@@ -105,6 +105,32 @@ alias py='python3'
 alias lc='leetgo'
 alias piq='pi -p --no-session'
 
+# --- Typst projects ---
+
+# Copy a template into a new directory and open it in Neovim.
+typnew() {
+	if (( $# != 2 )) || [[ -z $2 ]]; then
+		print -u2 -- 'Usage: typnew {notes|homework|slides} <directory>'
+		return 2
+	fi
+
+	case $1 in
+		notes|homework|slides) ;;
+		*) print -u2 -- "typnew: unknown template: $1"; return 2 ;;
+	esac
+
+	local template="$HOME/typst-templates/$1" dest="${2:a}"
+	if [[ ! -f $template/main.typ ]]; then
+		print -u2 -- "typnew: template missing: $template/main.typ"
+		return 1
+	fi
+
+	# mkdir refuses existing destinations instead of copying into them.
+	mkdir -- "$dest" || return 1
+	cp -R -- "$template/." "$dest/" || return 1
+	(cd -- "$dest" && nvim main.typ)
+}
+
 # --- Navigation and prompt ---
 eval "$(zoxide init zsh --cmd cd)"
 
