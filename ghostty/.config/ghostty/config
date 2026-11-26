@@ -1,11 +1,8 @@
 # By default Reload config with shift + cmd + ,
-config-file = themes/solarized
+# config-file = themes/solarized
+config-file = themes/nordbones
 #theme = "Catppuccin Mocha"
 #theme = "Nord"
-
-# === Background color ===
-# special for nord bone
-#background = #242933
 
 # === Background / transparency / blur ===
 background-opacity = 1

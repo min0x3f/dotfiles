@@ -10,7 +10,6 @@ opt.title = true
 
 -- Theme and cursor
 opt.termguicolors = true
-opt.background = "light"
 opt.cursorline = false
 opt.guicursor = "a:block"
 

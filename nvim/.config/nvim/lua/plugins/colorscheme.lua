@@ -1,10 +1,10 @@
-vim.opt.background = "light"
+vim.opt.background = "dark"
 
 require("solarized-osaka").setup({
 	transparent = false,
 })
 
-vim.cmd.colorscheme("solarized8_flat")
+vim.cmd.colorscheme("nordbones")
 
 -- Dim list characters for solarized8_flat (using base02 #eee8d5 for subtle indicators)
 local function dim_listchars()
